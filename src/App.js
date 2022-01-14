@@ -1,7 +1,7 @@
 
 import './App.css';
 import  {RecoilRoot} from 'recoil'
-import RecoilTest from './RecoilTest';
+import RecoilTest from './page/RecoilTest';
 
 const App = () => {
   return (
