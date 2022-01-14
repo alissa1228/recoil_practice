@@ -1,12 +1,12 @@
 
 import './App.css';
 import  {RecoilRoot} from 'recoil'
-import RecoilTest from './page/RecoilTest';
+import TodoList from './page/TodoList';
 
 const App = () => {
   return (
     <RecoilRoot>
-      <RecoilTest/>
+      <TodoList/>
     </RecoilRoot>
   );
 }

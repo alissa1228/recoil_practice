@@ -1,9 +1,12 @@
 import {
     atom,
     selector,
-    useRecoilState,
-    useRecoilValue,
   } from 'recoil';
+
+export const TodoListState = atom({
+    key:'TodoListState',
+    default: []
+})
 
  export const textState = atom({
       key: 'textState',
