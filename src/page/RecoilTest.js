@@ -2,6 +2,7 @@ import React from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { textState, charCount } from '../Recoil';
 import styled from 'styled-components'
+import TodoList from './TodoList';
 
 const RecoilTest = () => {
 
@@ -19,7 +20,9 @@ const onChange = (event) => {
                 <br/>
                 <p>{text}</p>
                 <p>길이 : {charCounts}</p>
+                <TodoList/>
             </div>
+    
         </Box>
     )
 

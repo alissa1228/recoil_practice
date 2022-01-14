@@ -1,10 +1,11 @@
 import React from 'react'
-import { RecoilValue } from 'recoil'
+import {  useRecoilValue } from 'recoil'
 import { textState } from '../Recoil'
 
 const TodoList = () => {
 
-    const textValue = RecoilValue(textState)
+    const textValue =  useRecoilValue(textState)
+    console.log(textValue)
 
     return(
         <div>
