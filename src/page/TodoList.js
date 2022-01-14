@@ -2,6 +2,7 @@ import React from 'react'
 import {  useRecoilValue } from 'recoil'
 import { TodoListState } from '../Recoil'
 import TodoCreate from './TodoCreate'
+import TodoItem from './TodoItem'
 import styled from 'styled-components'
 
 const TodoList = () => {
@@ -12,8 +13,8 @@ const TodoList = () => {
     return(
         <Box>
             <TodoCreate/>
-            {TodoListValue.map((item)=>(
-                <div key={item.id}>{item.text}</div>
+            {TodoListValue.map((todoitem)=>(
+                <TodoItem key={todoitem.id} item={todoitem}/>
             ))}
         </Box>
     )
@@ -26,5 +27,6 @@ const Box = styled.div`
     height: 100vh;
     background-color : #f9f9f9;
 
+    
  
 `

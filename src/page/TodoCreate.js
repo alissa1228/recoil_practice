@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import {  useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { TodoListState } from "../Recoil";
 import styled from "styled-components";
 
+
+ //아이디 만들기
+ let id = 0;
+
+ const getId = () => {
+   return id++;
+ };
+ 
+ 
 const TodoCreate = () => {
   //새로운 todo 아이템을 생성하기 위해 todoListState 내용을 업데이트하는 setter 함수에 접근.
   const setTodoList = useSetRecoilState(TodoListState);
 
-  //랜덤으로 숫자 아이디 만들기
-  const getId = () => {
-    let id = Math.random();
-    return id;
-  };
-
+ 
   const [inputValue, setInput] = useState("");
 
   const onChange = (e) => {
@@ -35,11 +39,12 @@ const TodoCreate = () => {
 
   return (
     <Box>
-      <input type='text' value={inputValue} onChange={onChange} />
-      <Add onClick={addItem}>add Item</Add>
+        <input type='text' value={inputValue} onChange={onChange} />
+        <Add onClick={addItem}>add Item</Add>
     </Box>
   );
 };
+
 
 export default TodoCreate;
 
@@ -47,8 +52,8 @@ const Box = styled.div`
   padding: 50px;
 
   > input {
-      height:20px;
-      width: 200px;
+    height: 20px;
+    width: 200px;
   }
 `;
 
