@@ -14,19 +14,16 @@ const TodoList = ({ item }) => {
   };
 
   const removeItemAtIndex = (arr, index) => {
-      console.log(...arr.slice(0, index));
-      console.log(...arr.slice(index + 1));
-
     return [...arr.slice(0, index), ...arr.slice(index + 1)];
-  }
+  };
 
   const toggleItemCompletion = () => {
     const newList = replaceItemAtIndex(todoList, index, {
-        ...item,
-        isComplete: !item.isComplete
+      ...item,
+      isComplete: !item.isComplete,
     });
     setTodoList(newList);
-  }
+  };
 
   const EditText = (e) => {
     const newList = replaceItemAtIndex(todoList, index, {
@@ -37,32 +34,85 @@ const TodoList = ({ item }) => {
   };
 
   const DeleteItem = () => {
-      const newList = removeItemAtIndex(todoList, index);
-        setTodoList(newList);
-  }
+    const newList = removeItemAtIndex(todoList, index);
+    setTodoList(newList);
+  };
 
   return (
     <Box>
-      <div>
-        <input
-          type='checkbox'
-          checked={item.isComplete}
-          onChange={toggleItemCompletion}
-        />
-        <Editable type='text' value={item.text} onChange={EditText} />
-        <button onClick={DeleteItem}>X</button>
-      </div>
+      <MemoBox>
+        <div>
+          <input
+            type='checkbox'
+            checked={item.isComplete}
+            onChange={toggleItemCompletion}
+          />
+          <Editable type='text' value={item.text} onChange={EditText} />
+        </div>
+        <Delete onClick={DeleteItem}>X</Delete>
+      </MemoBox>
     </Box>
   );
 };
 
 export default TodoList;
 
-const Box = styled.div``;
+const Box = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+`;
+
+const MemoBox = styled.div`
+  border: 1px solid #f3f3f3;
+  border-radius: 15px;
+  padding: 5px 25px;
+  display: flex;
+  justify-content: space-between;
+
+  > div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    > input[type="checkbox"] {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: 0;
+      background: lightgray;
+      height: 35px;
+      width: 35px;
+      border: 1px solid white;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    > input[type="checkbox"]:checked {
+      background: #00c9a5;
+    }
+  }
+`;
 
 const Editable = styled.input`
   border: 0;
   outline: 0;
-  border-bottom: 1px solid #000;
-  padding-bottom: 5px;
+  font-size: 1.8rem;
+  margin: 0 15px;
+  width: 100%;
+`;
+
+const Delete = styled.button`
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 300ms ease;
+  cursor: pointer;
+
+  &:hover {
+      color :#C493FF;
+  }
 `;
