@@ -98,7 +98,7 @@ const MemoBox = styled.div`
 const Editable = styled.input`
   border: 0;
   outline: 0;
-  font-size: 1.8rem;
+  font-size: 20px;
   margin: 0 15px;
   width: 100%;
 `;
